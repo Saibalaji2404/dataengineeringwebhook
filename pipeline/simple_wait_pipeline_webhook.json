@@ -1,0 +1,19 @@
+{
+	"name": "simple_wait_pipeline_webhook",
+	"properties": {
+		"activities": [
+			{
+				"name": "wait",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 30
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-04-19T08:03:58Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

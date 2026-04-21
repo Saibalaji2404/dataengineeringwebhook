@@ -1,0 +1,57 @@
+{
+	"name": "call_back_pipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Wait1",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 30
+				}
+			},
+			{
+				"name": "Call_Callback",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Wait1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"url": {
+						"value": "@pipeline().parameters.callBackUri",
+						"type": "Expression"
+					},
+					"body": {
+						"statusCode": 200,
+						"output": {
+							"message": "Pipeline2 completed",
+							"rowsProcessed": 500
+						}
+					}
+				}
+			}
+		],
+		"parameters": {
+			"callBackUri": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-04-19T09:22:04Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
