@@ -1,0 +1,9 @@
+{
+	"name": "saiadfwebhook",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "cb6f8220-2ab3-457f-93f4-3c9bf7427d0c",
+		"tenantId": "f742e6ed-c915-499a-a238-e9f8d7446b0b"
+	}
+}
